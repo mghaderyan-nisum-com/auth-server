@@ -37,9 +37,12 @@ app.get('/validateToken', function (req, res) {
      }
      parser.parseString(body, (err, result) => {
        console.log(body);
-       res.cookie('sr_token', req.query.srtoken);
+       var validationResult = result['sr:validateTokenResponse']['sr:validationResult'][0] === 'true';
+       if (validationResult === true) {
+         res.cookie('sr_token', req.query.srtoken);
+       }
        return res.json({
-         result: result['sr:validateTokenResponse']['sr:validationResult'][0] === 'true',
+         result: validationResult,
        });
      });
   })
