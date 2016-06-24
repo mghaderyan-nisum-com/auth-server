@@ -255,8 +255,10 @@
 	'use strict';
 
 	module.exports = {
-	  VALIDATION_URL: 'http://localhost:5000/validateToken'
+	  VALIDATION_URL: 'http://auth-server-sr.herokuapp.com/validateToken'
 	};
+
+	//   VALIDATION_URL: 'http://auth-server-sr.herokuapp.com/validateToken',
 
 /***/ },
 /* 8 */

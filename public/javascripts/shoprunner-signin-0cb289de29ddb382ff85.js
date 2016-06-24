@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(5);
+	module.exports = __webpack_require__(8);
 
 
 /***/ },
@@ -52,16 +52,7 @@
 /* 2 */,
 /* 3 */,
 /* 4 */,
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('here');
-
-/***/ },
+/* 5 */,
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -160,7 +151,35 @@
 	'use strict';
 
 	module.exports = {
-	  VALIDATION_URL: 'http://localhost:5000/validateToken'
+	  VALIDATION_URL: 'http://auth-server-sr.herokuapp.com/validateToken'
+	};
+
+	//   VALIDATION_URL: 'http://auth-server-sr.herokuapp.com/validateToken',
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	__webpack_require__(6);
+
+	console.log('sign in page');
+
+	// This can be set anytime after the shoprunner_init.js file has been loaded
+	window._shoprunner_com.calls = {
+	  on_sign_in: function on_sign_in() {
+	    console.log('**** signed in');
+	    sr_updateMessages(); // Refresh ShopRunner divs
+	  }
+	};
+
+	//This can be set anytime after the shoprunner_init.js file has been loaded
+	window._shoprunner_com.calls = {
+	  on_sign_out: function on_sign_out() {
+	    console.log('**** signed out');
+	    sr_updateMessages(); // Refresh ShopRunner divs
+	  }
 	};
 
 /***/ }
