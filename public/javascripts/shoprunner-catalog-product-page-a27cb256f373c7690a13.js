@@ -44,121 +44,15 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
+	module.exports = __webpack_require__(9);
 
 
 /***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(2);
-
-	console.log('app.js has loaded!');
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/*
-	  Automatically instantiates modules based on data-attrubiutes
-	  specifying module file-names.
-	*/
-
-	var moduleElements = document.querySelectorAll('[data-module]');
-
-	for (var i = 0; i < moduleElements.length; i++) {
-	  var el = moduleElements[i];
-	  var name = el.getAttribute('data-module');
-	  var Module = __webpack_require__(3)("./" + name).default;
-	  new Module(el);
-	}
-
-	/*
-	  Usage:
-	  ======
-
-	  html
-	  ----
-	  <button data-module="disappear">disappear!</button>
-
-	  js
-	  --
-	  // modules/disappear.js
-	  export default class Disappear {
-	    constructor(el) {
-	      el.style.display = none
-	    }
-	  }
-	*/
-
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var map = {
-		"./example": 4,
-		"./example.js": 4,
-		"./index": 2,
-		"./index.js": 2,
-		"./shoprunner": 5,
-		"./shoprunner-cart-page": 8,
-		"./shoprunner-cart-page.js": 8,
-		"./shoprunner-signin": 9,
-		"./shoprunner-signin.js": 9,
-		"./shoprunner.js": 5,
-		"./shoprunner_init": 6,
-		"./shoprunner_init.js": 6
-	};
-	function webpackContext(req) {
-		return __webpack_require__(webpackContextResolve(req));
-	};
-	function webpackContextResolve(req) {
-		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
-	};
-	webpackContext.keys = function webpackContextKeys() {
-		return Object.keys(map);
-	};
-	webpackContext.resolve = webpackContextResolve;
-	module.exports = webpackContext;
-	webpackContext.id = 3;
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var Example = function Example(el) {
-	  _classCallCheck(this, Example);
-
-	  this.el = el;
-	  console.log(el.textContent, '- From the example module');
-	};
-
-	exports.default = Example;
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('here');
-
-/***/ },
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -263,16 +157,7 @@
 	//   VALIDATION_URL: 'http://auth-server-sr.herokuapp.com/validateToken',
 
 /***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('cart page');
-
-/***/ },
+/* 8 */,
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -280,23 +165,7 @@
 
 	__webpack_require__(6);
 
-	console.log('sign in page');
-
-	// This can be set anytime after the shoprunner_init.js file has been loaded
-	window._shoprunner_com.calls = {
-	  on_sign_in: function on_sign_in() {
-	    console.log('**** signed in');
-	    sr_updateMessages(); // Refresh ShopRunner divs
-	  }
-	};
-
-	//This can be set anytime after the shoprunner_init.js file has been loaded
-	window._shoprunner_com.calls = {
-	  on_sign_out: function on_sign_out() {
-	    console.log('**** signed out');
-	    sr_updateMessages(); // Refresh ShopRunner divs
-	  }
-	};
+	console.log('catalog product page');
 
 /***/ }
 /******/ ]);
