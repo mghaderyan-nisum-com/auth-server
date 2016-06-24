@@ -22,7 +22,8 @@
       "entries": {
         "app": ["./app.js"],
         "shoprunner": ["./modules/shoprunner.js"],
-        "shoprunner-signin": ["./modules/shoprunner-signin.js"]
+        "shoprunner-signin": ["./modules/shoprunner-signin.js"],
+        "shoprunner-cart-page": ["./modules/shoprunner-cart-page.js"]
       },
       "extensions": ["js", "json"],
       "babel": {
