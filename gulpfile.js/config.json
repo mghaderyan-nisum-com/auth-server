@@ -25,7 +25,8 @@
         "shoprunner-signin": ["./modules/shoprunner-signin.js"],
         "shoprunner-cart-page": ["./modules/shoprunner-cart-page.js"],
         "shoprunner-catalog-product-page": ["./modules/shoprunner-catalog-product-page.js"],
-        "shoprunner-product-detail-page": ["./modules/shoprunner-product-detail-page.js"]
+        "shoprunner-product-detail-page": ["./modules/shoprunner-product-detail-page.js"],
+        "shoprunner-checkout-page": ["./modules/shoprunner-checkout-page.js"]
       },
       "extensions": ["js", "json"],
       "babel": {
