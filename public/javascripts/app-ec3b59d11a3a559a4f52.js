@@ -111,10 +111,12 @@
 		"./shoprunner-catalog-product-page.js": 12,
 		"./shoprunner-checkout-page": 13,
 		"./shoprunner-checkout-page.js": 13,
-		"./shoprunner-product-detail-page": 14,
-		"./shoprunner-product-detail-page.js": 14,
-		"./shoprunner-signin": 15,
-		"./shoprunner-signin.js": 15,
+		"./shoprunner-master-product-detail-page": 14,
+		"./shoprunner-master-product-detail-page.js": 14,
+		"./shoprunner-product-detail-page": 15,
+		"./shoprunner-product-detail-page.js": 15,
+		"./shoprunner-signin": 16,
+		"./shoprunner-signin.js": 16,
 		"./shoprunner.js": 5,
 		"./shoprunner_init": 7,
 		"./shoprunner_init.js": 7,
@@ -544,7 +546,7 @@
 
 	__webpack_require__(6);
 
-	console.log('product detail page');
+	console.log('master product detail page');
 
 /***/ },
 /* 15 */
@@ -553,7 +555,17 @@
 	'use strict';
 
 	__webpack_require__(6);
-	var $ = __webpack_require__(16);
+
+	console.log('product detail page');
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	__webpack_require__(6);
+	var $ = __webpack_require__(17);
 
 	console.log('sign in page');
 
@@ -605,7 +617,7 @@
 	// });
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!

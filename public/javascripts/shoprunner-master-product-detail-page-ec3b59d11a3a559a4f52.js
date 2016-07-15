@@ -400,7 +400,7 @@
 
 	__webpack_require__(6);
 
-	console.log('product detail page');
+	console.log('master product detail page');
 
 /***/ }
 /******/ ]);
