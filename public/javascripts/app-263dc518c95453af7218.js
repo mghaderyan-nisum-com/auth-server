@@ -179,6 +179,14 @@
 	     * -----------------------------------------
 	     */
 
+	    _shoprunner_com.onSignIn = function (isValid) {
+	        if (isValid) {
+	            _shoprunner_com.isUserSignedIn = true;
+	        } else {
+	            _shoprunner_com.isUserSignedIn = false;
+	        }
+	    };
+
 	    _shoprunner_com.version = 3.0;
 	    _shoprunner_com.enabled = true;
 	    _shoprunner_com.retailerID = 'BLOOM';
@@ -320,15 +328,15 @@
 	console.log('sign in page');
 
 	// This can be set anytime after the shoprunner_init.js file has been loaded
-	window._shoprunner_com.onSignIn = function (isValid) {
-	  console.log('**** signed in');
-	  if (isValid) {
-	    _shoprunner_com.isUserSignedIn = true;
-	  } else {
-	    _shoprunner_com.isUserSignedIn = false;
-	  }
-	  // sr_updateMessages();  // Refresh ShopRunner divs
-	};
+	// window._shoprunner_com.onSignIn = function(isValid){
+	//   console.log('**** signed in');
+	//   if(isValid) {
+	//     _shoprunner_com.isUserSignedIn = true;
+	//   } else {
+	//     _shoprunner_com.isUserSignedIn = false;
+	//   }
+	//   // sr_updateMessages();  // Refresh ShopRunner divs
+	// }
 
 	//This can be set anytime after the shoprunner_init.js file has been loaded
 	// window._shoprunner_com.calls = {

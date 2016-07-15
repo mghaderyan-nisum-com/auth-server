@@ -76,6 +76,14 @@
 	     * -----------------------------------------
 	     */
 
+	    _shoprunner_com.onSignIn = function (isValid) {
+	        if (isValid) {
+	            _shoprunner_com.isUserSignedIn = true;
+	        } else {
+	            _shoprunner_com.isUserSignedIn = false;
+	        }
+	    };
+
 	    _shoprunner_com.version = 3.0;
 	    _shoprunner_com.enabled = true;
 	    _shoprunner_com.retailerID = 'BLOOM';
