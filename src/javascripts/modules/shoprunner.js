@@ -1,3 +1,3 @@
-require('./shoprunner_init');
+require('./sr-bootstrap');
 
 console.log('here');

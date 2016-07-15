@@ -1,3 +1,6 @@
+var store = require('store');
+
+
 var _shoprunner_com = {};
 window._shoprunner_com = _shoprunner_com;
 
@@ -10,8 +13,10 @@ window._shoprunner_com = _shoprunner_com;
     _shoprunner_com.onSignIn = function(isValid){
       if(isValid) {
         _shoprunner_com.isUserSignedIn = true;
+        store.set('isUserSignedIn', true);
       } else {
         _shoprunner_com.isUserSignedIn = false;
+        store.set('isUserSignedIn', false);
       }
     }
 

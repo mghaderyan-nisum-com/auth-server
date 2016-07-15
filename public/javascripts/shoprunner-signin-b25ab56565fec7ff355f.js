@@ -44,131 +44,30 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
+	module.exports = __webpack_require__(15);
 
 
 /***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(2);
-
-	console.log('app.js has loaded!');
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/*
-	  Automatically instantiates modules based on data-attrubiutes
-	  specifying module file-names.
-	*/
-
-	var moduleElements = document.querySelectorAll('[data-module]');
-
-	for (var i = 0; i < moduleElements.length; i++) {
-	  var el = moduleElements[i];
-	  var name = el.getAttribute('data-module');
-	  var Module = __webpack_require__(3)("./" + name).default;
-	  new Module(el);
-	}
-
-	/*
-	  Usage:
-	  ======
-
-	  html
-	  ----
-	  <button data-module="disappear">disappear!</button>
-
-	  js
-	  --
-	  // modules/disappear.js
-	  export default class Disappear {
-	    constructor(el) {
-	      el.style.display = none
-	    }
-	  }
-	*/
-
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var map = {
-		"./example": 4,
-		"./example.js": 4,
-		"./index": 2,
-		"./index.js": 2,
-		"./shoprunner": 5,
-		"./shoprunner-cart-page": 8,
-		"./shoprunner-cart-page.js": 8,
-		"./shoprunner-catalog-product-page": 9,
-		"./shoprunner-catalog-product-page.js": 9,
-		"./shoprunner-checkout-page": 10,
-		"./shoprunner-checkout-page.js": 10,
-		"./shoprunner-product-detail-page": 11,
-		"./shoprunner-product-detail-page.js": 11,
-		"./shoprunner-signin": 12,
-		"./shoprunner-signin.js": 12,
-		"./shoprunner.js": 5,
-		"./shoprunner_init": 6,
-		"./shoprunner_init.js": 6
-	};
-	function webpackContext(req) {
-		return __webpack_require__(webpackContextResolve(req));
-	};
-	function webpackContextResolve(req) {
-		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
-	};
-	webpackContext.keys = function webpackContextKeys() {
-		return Object.keys(map);
-	};
-	webpackContext.resolve = webpackContextResolve;
-	module.exports = webpackContext;
-	webpackContext.id = 3;
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var Example = function Example(el) {
-	  _classCallCheck(this, Example);
-
-	  this.el = el;
-	  console.log(el.textContent, '- From the example module');
-	};
-
-	exports.default = Example;
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('here');
-
-/***/ },
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+
+	__webpack_require__(7);
+	__webpack_require__(10);
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var store = __webpack_require__(8);
 
 	var _shoprunner_com = {};
 	window._shoprunner_com = _shoprunner_com;
@@ -182,15 +81,17 @@
 	    _shoprunner_com.onSignIn = function (isValid) {
 	        if (isValid) {
 	            _shoprunner_com.isUserSignedIn = true;
+	            store.set('isUserSignedIn', true);
 	        } else {
 	            _shoprunner_com.isUserSignedIn = false;
+	            store.set('isUserSignedIn', false);
 	        }
 	    };
 
 	    _shoprunner_com.version = 3.0;
 	    _shoprunner_com.enabled = true;
 	    _shoprunner_com.retailerID = 'BLOOM';
-	    _shoprunner_com.loginValidationURL = __webpack_require__(7).VALIDATION_URL;
+	    _shoprunner_com.loginValidationURL = __webpack_require__(9).VALIDATION_URL;
 
 	    /*
 	     * @const (Integer field)
@@ -265,7 +166,205 @@
 	})();
 
 /***/ },
-/* 7 */
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {"use strict"
+	// Module export pattern from
+	// https://github.com/umdjs/umd/blob/master/returnExports.js
+	;(function (root, factory) {
+	    if (true) {
+	        // AMD. Register as an anonymous module.
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    } else if (typeof exports === 'object') {
+	        // Node. Does not work with strict CommonJS, but
+	        // only CommonJS-like environments that support module.exports,
+	        // like Node.
+	        module.exports = factory();
+	    } else {
+	        // Browser globals (root is window)
+	        root.store = factory();
+	  }
+	}(this, function () {
+		
+		// Store.js
+		var store = {},
+			win = (typeof window != 'undefined' ? window : global),
+			doc = win.document,
+			localStorageName = 'localStorage',
+			scriptTag = 'script',
+			storage
+
+		store.disabled = false
+		store.version = '1.3.20'
+		store.set = function(key, value) {}
+		store.get = function(key, defaultVal) {}
+		store.has = function(key) { return store.get(key) !== undefined }
+		store.remove = function(key) {}
+		store.clear = function() {}
+		store.transact = function(key, defaultVal, transactionFn) {
+			if (transactionFn == null) {
+				transactionFn = defaultVal
+				defaultVal = null
+			}
+			if (defaultVal == null) {
+				defaultVal = {}
+			}
+			var val = store.get(key, defaultVal)
+			transactionFn(val)
+			store.set(key, val)
+		}
+		store.getAll = function() {}
+		store.forEach = function() {}
+
+		store.serialize = function(value) {
+			return JSON.stringify(value)
+		}
+		store.deserialize = function(value) {
+			if (typeof value != 'string') { return undefined }
+			try { return JSON.parse(value) }
+			catch(e) { return value || undefined }
+		}
+
+		// Functions to encapsulate questionable FireFox 3.6.13 behavior
+		// when about.config::dom.storage.enabled === false
+		// See https://github.com/marcuswestin/store.js/issues#issue/13
+		function isLocalStorageNameSupported() {
+			try { return (localStorageName in win && win[localStorageName]) }
+			catch(err) { return false }
+		}
+
+		if (isLocalStorageNameSupported()) {
+			storage = win[localStorageName]
+			store.set = function(key, val) {
+				if (val === undefined) { return store.remove(key) }
+				storage.setItem(key, store.serialize(val))
+				return val
+			}
+			store.get = function(key, defaultVal) {
+				var val = store.deserialize(storage.getItem(key))
+				return (val === undefined ? defaultVal : val)
+			}
+			store.remove = function(key) { storage.removeItem(key) }
+			store.clear = function() { storage.clear() }
+			store.getAll = function() {
+				var ret = {}
+				store.forEach(function(key, val) {
+					ret[key] = val
+				})
+				return ret
+			}
+			store.forEach = function(callback) {
+				for (var i=0; i<storage.length; i++) {
+					var key = storage.key(i)
+					callback(key, store.get(key))
+				}
+			}
+		} else if (doc && doc.documentElement.addBehavior) {
+			var storageOwner,
+				storageContainer
+			// Since #userData storage applies only to specific paths, we need to
+			// somehow link our data to a specific path.  We choose /favicon.ico
+			// as a pretty safe option, since all browsers already make a request to
+			// this URL anyway and being a 404 will not hurt us here.  We wrap an
+			// iframe pointing to the favicon in an ActiveXObject(htmlfile) object
+			// (see: http://msdn.microsoft.com/en-us/library/aa752574(v=VS.85).aspx)
+			// since the iframe access rules appear to allow direct access and
+			// manipulation of the document element, even for a 404 page.  This
+			// document can be used instead of the current document (which would
+			// have been limited to the current path) to perform #userData storage.
+			try {
+				storageContainer = new ActiveXObject('htmlfile')
+				storageContainer.open()
+				storageContainer.write('<'+scriptTag+'>document.w=window</'+scriptTag+'><iframe src="/favicon.ico"></iframe>')
+				storageContainer.close()
+				storageOwner = storageContainer.w.frames[0].document
+				storage = storageOwner.createElement('div')
+			} catch(e) {
+				// somehow ActiveXObject instantiation failed (perhaps some special
+				// security settings or otherwse), fall back to per-path storage
+				storage = doc.createElement('div')
+				storageOwner = doc.body
+			}
+			var withIEStorage = function(storeFunction) {
+				return function() {
+					var args = Array.prototype.slice.call(arguments, 0)
+					args.unshift(storage)
+					// See http://msdn.microsoft.com/en-us/library/ms531081(v=VS.85).aspx
+					// and http://msdn.microsoft.com/en-us/library/ms531424(v=VS.85).aspx
+					storageOwner.appendChild(storage)
+					storage.addBehavior('#default#userData')
+					storage.load(localStorageName)
+					var result = storeFunction.apply(store, args)
+					storageOwner.removeChild(storage)
+					return result
+				}
+			}
+
+			// In IE7, keys cannot start with a digit or contain certain chars.
+			// See https://github.com/marcuswestin/store.js/issues/40
+			// See https://github.com/marcuswestin/store.js/issues/83
+			var forbiddenCharsRegex = new RegExp("[!\"#$%&'()*+,/\\\\:;<=>?@[\\]^`{|}~]", "g")
+			var ieKeyFix = function(key) {
+				return key.replace(/^d/, '___$&').replace(forbiddenCharsRegex, '___')
+			}
+			store.set = withIEStorage(function(storage, key, val) {
+				key = ieKeyFix(key)
+				if (val === undefined) { return store.remove(key) }
+				storage.setAttribute(key, store.serialize(val))
+				storage.save(localStorageName)
+				return val
+			})
+			store.get = withIEStorage(function(storage, key, defaultVal) {
+				key = ieKeyFix(key)
+				var val = store.deserialize(storage.getAttribute(key))
+				return (val === undefined ? defaultVal : val)
+			})
+			store.remove = withIEStorage(function(storage, key) {
+				key = ieKeyFix(key)
+				storage.removeAttribute(key)
+				storage.save(localStorageName)
+			})
+			store.clear = withIEStorage(function(storage) {
+				var attributes = storage.XMLDocument.documentElement.attributes
+				storage.load(localStorageName)
+				for (var i=attributes.length-1; i>=0; i--) {
+					storage.removeAttribute(attributes[i].name)
+				}
+				storage.save(localStorageName)
+			})
+			store.getAll = function(storage) {
+				var ret = {}
+				store.forEach(function(key, val) {
+					ret[key] = val
+				})
+				return ret
+			}
+			store.forEach = withIEStorage(function(storage, callback) {
+				var attributes = storage.XMLDocument.documentElement.attributes
+				for (var i=0, attr; attr=attributes[i]; ++i) {
+					callback(attr.name, store.deserialize(storage.getAttribute(attr.name)))
+				}
+			})
+		}
+
+		try {
+			var testKey = '__storejs__'
+			store.set(testKey, testKey)
+			if (store.get(testKey) != testKey) { store.disabled = true }
+			store.remove(testKey)
+		} catch(e) {
+			store.disabled = true
+		}
+		store.enabled = !store.disabled
+		
+		return store
+	}));
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 9 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -277,53 +376,31 @@
 	//   VALIDATION_URL: 'http://auth-server-sr.herokuapp.com/validateToken',
 
 /***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('cart page');
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('catalog product page');
-
-/***/ },
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(6);
+	var store = __webpack_require__(8);
 
-	console.log('checkout page');
+	if (store.get('isUserSignedIn') === true) {
+	  _shoprunner_com.isUserSignedIn = true;
+	} else {
+	  _shoprunner_com.isUserSignedIn = false;
+	}
 
 /***/ },
-/* 11 */
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	__webpack_require__(6);
-
-	console.log('product detail page');
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-	var $ = __webpack_require__(13);
+	var $ = __webpack_require__(16);
 
 	console.log('sign in page');
 
@@ -375,7 +452,7 @@
 	// });
 
 /***/ },
-/* 13 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!

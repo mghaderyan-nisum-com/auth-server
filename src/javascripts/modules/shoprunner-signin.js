@@ -1,4 +1,4 @@
-require('./shoprunner_init');
+require('./sr-bootstrap');
 var $ = require('jquery');
 
 console.log('sign in page');
