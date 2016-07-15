@@ -1,0 +1,4 @@
+http and https -> session storage value must be set
+show shipping method only if user says is active and session storage says user is signed in
+jsonp in validateToken call
+hook needed for clicking on "learn more" to do Coremetrics
