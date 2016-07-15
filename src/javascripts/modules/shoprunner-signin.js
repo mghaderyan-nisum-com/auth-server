@@ -5,25 +5,29 @@ console.log('sign in page');
 
 // This can be set anytime after the shoprunner_init.js file has been loaded
 window._shoprunner_com.onSignIn = function(isValid){
-  debugger;
   console.log('**** signed in');
-  console.log(isValid);
+  if(isValid) {
+    _shoprunner_com.isUserSignedIn = true;
+  } else {
+    _shoprunner_com.isUserSignedIn = false;
+  }
   // sr_updateMessages();  // Refresh ShopRunner divs
 }
 
 //This can be set anytime after the shoprunner_init.js file has been loaded
-window._shoprunner_com.calls = {
-       on_sign_out: function(){
-         console.log('**** signed out');
-         sr_updateMessages();  // Refresh ShopRunner divs
-       }
-}
+// window._shoprunner_com.calls = {
+//        on_sign_out: function(){
+//          console.log('**** signed out');
+//          _shoprunner_com.isUserSignedIn = false;
+//          sr_updateMessages();  // Refresh ShopRunner divs
+//        }
+// }
 
-window.sr_tokenValidationCallback = function(result) {
-  debugger;
-  console.log('****');
-  console.log(result);
-}
+// window.sr_tokenValidationCallback = function(result) {
+//   debugger;
+//   console.log('****');
+//   console.log(result);
+// }
 
 // console.log('jsonp call');
 // window.logResults = function logResults(json){
