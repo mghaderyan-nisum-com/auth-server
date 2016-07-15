@@ -41,10 +41,10 @@ app.get('/validateToken', function (req, res) {
        if (validationResult === true) {
          res.cookie('sr_token', req.query.srtoken);
        }
-      //  return res.json({
-      //    result: validationResult,
-      //  });
-      res.jsonp(req.query.callback + '('+ JSON.stringify({result: validationResult}) + ');');
+       return res.jsonp({
+         result: validationResult,
+       });
+
      });
   })
 });
