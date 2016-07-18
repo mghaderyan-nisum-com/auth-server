@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(14);
+	module.exports = __webpack_require__(13);
 
 
 /***/ },
@@ -59,15 +59,13 @@
 	'use strict';
 
 	__webpack_require__(7);
-	__webpack_require__(10);
+	__webpack_require__(9);
 
 /***/ },
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	var store = __webpack_require__(8);
 
 	var _shoprunner_com = {};
 	window._shoprunner_com = _shoprunner_com;
@@ -78,20 +76,10 @@
 	     * -----------------------------------------
 	     */
 
-	    _shoprunner_com.onSignIn = function (isValid) {
-	        if (isValid) {
-	            _shoprunner_com.isUserSignedIn = true;
-	            store.set('isUserSignedIn', true);
-	        } else {
-	            _shoprunner_com.isUserSignedIn = false;
-	            store.set('isUserSignedIn', false);
-	        }
-	    };
-
 	    _shoprunner_com.version = 3.0;
 	    _shoprunner_com.enabled = true;
 	    _shoprunner_com.retailerID = 'BLOOM';
-	    _shoprunner_com.loginValidationURL = __webpack_require__(9).VALIDATION_URL;
+	    _shoprunner_com.loginValidationURL = __webpack_require__(8).VALIDATION_URL;
 
 	    /*
 	     * @const (Integer field)
@@ -167,6 +155,42 @@
 
 /***/ },
 /* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = {
+	  VALIDATION_URL: 'http://auth-server-sr.herokuapp.com/validateToken'
+	};
+
+	//   VALIDATION_URL: 'http://auth-server-sr.herokuapp.com/validateToken',
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var store = __webpack_require__(10);
+
+	_shoprunner_com.onSignIn = function (isValid) {
+	  if (isValid) {
+	    _shoprunner_com.isUserSignedIn = true;
+	    store.set('isUserSignedIn', true);
+	  } else {
+	    _shoprunner_com.isUserSignedIn = false;
+	    store.set('isUserSignedIn', false);
+	  }
+	};
+
+	if (store.get('isUserSignedIn') === true) {
+	  _shoprunner_com.isUserSignedIn = true;
+	} else {
+	  _shoprunner_com.isUserSignedIn = false;
+	}
+
+/***/ },
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {"use strict"
@@ -364,43 +388,16 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = {
-	  VALIDATION_URL: 'http://auth-server-sr.herokuapp.com/validateToken'
-	};
-
-	//   VALIDATION_URL: 'http://auth-server-sr.herokuapp.com/validateToken',
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var store = __webpack_require__(8);
-
-	if (store.get('isUserSignedIn') === true) {
-	  _shoprunner_com.isUserSignedIn = true;
-	} else {
-	  _shoprunner_com.isUserSignedIn = false;
-	}
-
-/***/ },
 /* 11 */,
 /* 12 */,
-/* 13 */,
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	__webpack_require__(6);
 
-	console.log('master product detail page');
+	console.log('checkout page');
 
 /***/ }
 /******/ ]);
