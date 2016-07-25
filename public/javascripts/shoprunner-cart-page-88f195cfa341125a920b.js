@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(15);
+	module.exports = __webpack_require__(11);
 
 
 /***/ },
@@ -177,9 +177,11 @@
 	  if (isValid) {
 	    _shoprunner_com.isUserSignedIn = true;
 	    store.set('isUserSignedIn', true);
+	    console.log('***** sign in hook');
 	  } else {
 	    _shoprunner_com.isUserSignedIn = false;
 	    store.set('isUserSignedIn', false);
+	    console.log('***** sign out hook');
 	  }
 	};
 
@@ -388,18 +390,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	__webpack_require__(6);
 
-	console.log('product detail page');
+	console.log('cart page');
 
 /***/ }
 /******/ ]);

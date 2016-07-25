@@ -4,9 +4,11 @@ _shoprunner_com.onSignIn = function(isValid){
   if(isValid) {
     _shoprunner_com.isUserSignedIn = true;
     store.set('isUserSignedIn', true);
+    console.log('***** sign in hook');
   } else {
     _shoprunner_com.isUserSignedIn = false;
     store.set('isUserSignedIn', false);
+    console.log('***** sign out hook');
   }
 }
 
