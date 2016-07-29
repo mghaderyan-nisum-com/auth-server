@@ -1,5 +1,10 @@
 var store = require('store');
 
+window.fireBloomiesCoremetrics = function fireBloomiesCoremetrics(eventName) {
+  console.log('fired event', eventName);
+}
+
+
 _shoprunner_com.onSignIn = function(isValid){
   if(isValid) {
     _shoprunner_com.isUserSignedIn = true;
