@@ -44,133 +44,15 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
+	module.exports = __webpack_require__(16);
 
 
 /***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(2);
-
-	console.log('app.js has loaded!');
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/*
-	  Automatically instantiates modules based on data-attrubiutes
-	  specifying module file-names.
-	*/
-
-	var moduleElements = document.querySelectorAll('[data-module]');
-
-	for (var i = 0; i < moduleElements.length; i++) {
-	  var el = moduleElements[i];
-	  var name = el.getAttribute('data-module');
-	  var Module = __webpack_require__(3)("./" + name).default;
-	  new Module(el);
-	}
-
-	/*
-	  Usage:
-	  ======
-
-	  html
-	  ----
-	  <button data-module="disappear">disappear!</button>
-
-	  js
-	  --
-	  // modules/disappear.js
-	  export default class Disappear {
-	    constructor(el) {
-	      el.style.display = none
-	    }
-	  }
-	*/
-
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var map = {
-		"./example": 4,
-		"./example.js": 4,
-		"./index": 2,
-		"./index.js": 2,
-		"./shoprunner": 5,
-		"./shoprunner-cart-page": 11,
-		"./shoprunner-cart-page.js": 11,
-		"./shoprunner-catalog-product-page": 12,
-		"./shoprunner-catalog-product-page.js": 12,
-		"./shoprunner-checkout-page": 13,
-		"./shoprunner-checkout-page.js": 13,
-		"./shoprunner-master-product-detail-page": 14,
-		"./shoprunner-master-product-detail-page.js": 14,
-		"./shoprunner-product-detail-page": 15,
-		"./shoprunner-product-detail-page.js": 15,
-		"./shoprunner-signin": 16,
-		"./shoprunner-signin.js": 16,
-		"./shoprunner.js": 5,
-		"./shoprunner_init": 7,
-		"./shoprunner_init.js": 7,
-		"./sr-bootstrap": 6,
-		"./sr-bootstrap.js": 6,
-		"./sr-set-sign-in-status": 9,
-		"./sr-set-sign-in-status.js": 9
-	};
-	function webpackContext(req) {
-		return __webpack_require__(webpackContextResolve(req));
-	};
-	function webpackContextResolve(req) {
-		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
-	};
-	webpackContext.keys = function webpackContextKeys() {
-		return Object.keys(map);
-	};
-	webpackContext.resolve = webpackContextResolve;
-	module.exports = webpackContext;
-	webpackContext.id = 3;
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var Example = function Example(el) {
-	  _classCallCheck(this, Example);
-
-	  this.el = el;
-	  console.log(el.textContent, '- From the example module');
-	};
-
-	exports.default = Example;
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('here');
-
-/***/ },
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -291,22 +173,30 @@
 
 	var store = __webpack_require__(10);
 
-	_shoprunner_com.onSignIn = function (isValid) {
-	  if (isValid) {
-	    _shoprunner_com.isUserSignedIn = true;
-	    store.set('isUserSignedIn', true);
-	    console.log('***** sign in hook');
-	  } else {
-	    _shoprunner_com.isUserSignedIn = false;
-	    store.set('isUserSignedIn', false);
-	    console.log('***** sign out hook');
-	  }
+	window.fireBloomiesCoremetrics = function fireBloomiesCoremetrics(eventName) {
+	    console.log('fired event', eventName);
+	};
+
+	_shoprunner_com.onSignIn = function (err, isValid) {
+	    if (!err) {
+	        if (isValid) {
+	            _shoprunner_com.isUserSignedIn = true;
+	            store.set('isUserSignedIn', true);
+	            console.log('***** sign in hook');
+	        } else {
+	            _shoprunner_com.isUserSignedIn = false;
+	            store.set('isUserSignedIn', false);
+	            console.log('***** sign out hook');
+	        }
+	    } else {
+	        console.log('error occurred during token validation');
+	    }
 	};
 
 	if (store.get('isUserSignedIn') === true) {
-	  _shoprunner_com.isUserSignedIn = true;
+	    _shoprunner_com.isUserSignedIn = true;
 	} else {
-	  _shoprunner_com.isUserSignedIn = false;
+	    _shoprunner_com.isUserSignedIn = false;
 	}
 
 /***/ },
@@ -508,57 +398,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('cart page');
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('catalog product page');
-	_shoprunner_com.isUserSignedIn = true;
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('checkout page');
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('master product detail page');
-
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(6);
-
-	console.log('product detail page');
-
-/***/ },
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 

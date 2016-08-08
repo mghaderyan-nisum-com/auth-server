@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(13);
+	module.exports = __webpack_require__(12);
 
 
 /***/ },
@@ -173,22 +173,30 @@
 
 	var store = __webpack_require__(10);
 
-	_shoprunner_com.onSignIn = function (isValid) {
-	  if (isValid) {
-	    _shoprunner_com.isUserSignedIn = true;
-	    store.set('isUserSignedIn', true);
-	    console.log('***** sign in hook');
-	  } else {
-	    _shoprunner_com.isUserSignedIn = false;
-	    store.set('isUserSignedIn', false);
-	    console.log('***** sign out hook');
-	  }
+	window.fireBloomiesCoremetrics = function fireBloomiesCoremetrics(eventName) {
+	    console.log('fired event', eventName);
+	};
+
+	_shoprunner_com.onSignIn = function (err, isValid) {
+	    if (!err) {
+	        if (isValid) {
+	            _shoprunner_com.isUserSignedIn = true;
+	            store.set('isUserSignedIn', true);
+	            console.log('***** sign in hook');
+	        } else {
+	            _shoprunner_com.isUserSignedIn = false;
+	            store.set('isUserSignedIn', false);
+	            console.log('***** sign out hook');
+	        }
+	    } else {
+	        console.log('error occurred during token validation');
+	    }
 	};
 
 	if (store.get('isUserSignedIn') === true) {
-	  _shoprunner_com.isUserSignedIn = true;
+	    _shoprunner_com.isUserSignedIn = true;
 	} else {
-	  _shoprunner_com.isUserSignedIn = false;
+	    _shoprunner_com.isUserSignedIn = false;
 	}
 
 /***/ },
@@ -391,15 +399,15 @@
 
 /***/ },
 /* 11 */,
-/* 12 */,
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	__webpack_require__(6);
 
-	console.log('checkout page');
+	console.log('catalog product page');
+	_shoprunner_com.isUserSignedIn = true;
 
 /***/ }
 /******/ ]);
